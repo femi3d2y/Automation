@@ -1,0 +1,41 @@
+- hosts: swarm-master
+  become: true
+  tasks:
+  - name: Check user
+    user:
+      name: jenkins
+      shell: /bin/bash
+  - name: Install Git
+    apt:
+      name: git
+      state: latest
+  - name: Create Directory
+    file:
+      path: /home/jenkins/project
+      state: directory
+      mode: '0700'
+  - name: remove old clone
+    file:
+      path: /home/jenkins/project/dnd
+      state: absent
+  - name: Git clone
+    git:
+      repo: https://github.com/femi3d2y/dnd.git
+      dest: /home/jenkins/project/dnd
+      version: dev
+      clone: yes
+      recursive: yes
+  - name: Change permissions
+    file:
+      path: /home/jenkins/project
+      state: directory
+      owner: jenkins
+      group: jenkins
+      mode: '0700'
+  - name: Change permissions for git directory
+    file:
+      path: /home/jenkins/project/dnd/.git
+      state: directory
+      owner: jenkins
+      group: jenkins
+      mode: '0700'

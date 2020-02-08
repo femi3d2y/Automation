@@ -1,0 +1,24 @@
+- hosts: swarm-master
+  become: true
+  tasks:
+  - name: Check user
+    user:
+      name: jenkins
+      shell: /bin/bash
+  - name: pip install jsondiff
+    pip:
+      name: jsondiff
+      state: latest
+  - name: pip install pyYaml
+    pip:
+      name: pyyaml
+      state: latest
+  - name: Docker swarm initalise
+    docker_swarm:
+      state: present
+  - name: Deploy stack
+    docker_stack:
+      state: present
+      name: dnd
+      compose:
+        - /home/jenkins/project/dnd/docker-compose.yml    

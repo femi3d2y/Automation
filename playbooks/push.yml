@@ -1,0 +1,25 @@
+- hosts: swarm-master
+  become: true
+  tasks:
+  - name: Check user
+    user:
+      name: jenkins
+      shell: /bin/bash
+  - name: Install Docker Compose
+    pip:
+      name: docker-compose
+      state: latest
+  - name: Docker Compose up
+    docker_compose:
+      project_src: /home/jenkins/project/dnd
+      build: yes
+      state: present
+  - name: Docker Compose down
+    docker_compose:
+      project_src: /home/jenkins/project/dnd
+      state: absent
+      remove_volumes: yes
+  - name: Docker Compose Push
+    command: docker-compose push
+    args:
+      chdir: /home/jenkins/project/dnd      

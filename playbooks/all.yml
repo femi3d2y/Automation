@@ -1,0 +1,10 @@
+- import_playbook: key-pair.yml
+- import_playbook: public-key.yml
+- import_playbook: private-key.yml
+- import_playbook: docker-playbook.yml
+- import_playbook: jenkin-playbook.yml
+- import_playbook: docker-registry.yml
+- import_playbook: daemon.yml
+- import_playbook: git-playbook.yml
+  #- import_playbook: push.yml
+  #- import_playbook: deploy.yml

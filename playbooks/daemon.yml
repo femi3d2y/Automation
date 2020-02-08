@@ -1,0 +1,16 @@
+- hosts: all
+  become: true
+  tasks:
+  - name: Daemon.json
+    file: 
+     path: ./daemon.json
+     state: touch
+     mode: "0700"
+  - name: Copy Daemon.json
+    copy:
+     dest: /etc/docker/daemon.json
+     content:  { "insecure-registries":[35.234.154.83:5000] }
+  - name: Reload Docker
+    systemd:
+     name: docker
+     state: reloaded  
