@@ -4,7 +4,7 @@ variable "ingress_ports" {
   default     = [22, 80, 443]
 }
 
-variable "name" {
+variable "security-group-name" {
   description = "Name of security group"
 
 }

@@ -14,6 +14,20 @@ variable "volume" {
 }
 variable "value" {
 }
+variable "vpc-cidr-block" {
+}
+variable "subnet-cidr-block" {
+}
+variable "security-group-name" {
+}
+variable "ingress_ports" {
+}
+variable "outbound-port" {
+}
+variable "open-internet" {
+}
+
+
 
 
 provider "aws" {
@@ -30,4 +44,11 @@ module "infrastructure" {
   vpc_security_group_ids = var.vpc_security_group_ids
   volume                 = var.volume
   value                  = var.value
+  vpc-cidr-block         = var.vpc-cidr-block
+  subnet-cidr-block      = var.subnet-cidr-block
+  security_group_name    = var.security-group-name
+  ingress_ports          = var.ingress_ports
+  outbound-port          = var.outbound-port
+  open-internet          = var.open-internet
+
 }
