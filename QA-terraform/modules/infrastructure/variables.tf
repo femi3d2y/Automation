@@ -27,3 +27,21 @@ variable "ingress_ports" {
   description = "List of ingress ports"
   default     = [22, 80, 443]
 }
+
+
+variable "outbound-port" {
+  description = "open all outbound ports"
+  default     = 0
+}
+
+
+variable "open-internet" {
+  description = "Allow all connections"
+  default     = ["0.0.0.0/0"]
+
+}
+
+variable "security-group-name" {
+  description = "Name of security group"
+
+}

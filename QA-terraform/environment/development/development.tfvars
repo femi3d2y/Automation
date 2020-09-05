@@ -8,6 +8,7 @@ subnet_id              = "subnet-084bd0c21d636485e"
 vpc_security_group_ids = ["sg-a005e8c0"]
 volume                 = "16"
 value                  = "1"
+security-group-name    = "newsecure"
 vpc-cidr-block         = "10.0.0.0/16"
 subnet-cidr-block      = "10.0.1.0/24"
 ingress_ports          = ""
