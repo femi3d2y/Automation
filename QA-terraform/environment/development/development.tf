@@ -46,7 +46,7 @@ module "infrastructure" {
   value                  = var.value
   vpc-cidr-block         = var.vpc-cidr-block
   subnet-cidr-block      = var.subnet-cidr-block
-  security_group_name    = var.security-group-name
+  security-group-name    = var.security-group-name
   ingress_ports          = var.ingress_ports
   outbound-port          = var.outbound-port
   open-internet          = var.open-internet
