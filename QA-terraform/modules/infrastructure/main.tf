@@ -9,6 +9,7 @@ module "securitygroup" {
     source                 = "./SecurityGroups"
     security-group-name    = var.security-group-name
     ingress_ports          = var.ingress_ports
+    vpc_id                 = module.vpc.vpc.id
     outbound-port          = var.outbound-port
     open-internet          = var.open-internet
     vpc_id                 = module.vpc.aws_vpc.id
